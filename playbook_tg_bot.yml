@@ -152,7 +152,7 @@
         PORT: "{{ RM_PORT }}"
         USER: "{{ RM_USER }}"
         PASSWORD: "{{ RM_PASSWORD }}"
-        HOST_DB: "{{ hostvars['db']['ansible_host'] }}"s
+        HOST_DB: "{{ hostvars['db']['ansible_host'] }}"
         PORT_DB: "{{ DB_PORT }}"
         USER_DB: "{{ DB_USER }}"
         PASSWORD_DB: "{{ DB_PASSWORD }}"
