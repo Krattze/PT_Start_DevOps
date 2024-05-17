@@ -248,7 +248,7 @@ def getAptList(update: Update, context):
         msgs = [data[i:i + 4096] for i in range(0, len(data), 4096)]
         for text in msgs:
             update.message.reply_text(text)
-            return ConversationHandler.END
+        return ConversationHandler.END
     else:
          data = connectAndCommand('apt list --installed | grep ' + user_input)
     if(not data):
