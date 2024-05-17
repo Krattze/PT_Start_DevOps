@@ -155,20 +155,26 @@ def getPs(update: Update, context):
     user = update.effective_user
     logger.info('Пользователь ' + str(user.username) + " запустил команду get_ps")
     data = connectAndCommand('ps')
-    update.message.reply_text(data)
+    msgs = [data[i:i + 4096] for i in range(0, len(data), 4096)]
+        for text in msgs:
+            update.message.reply_text(text)
 
 def getSs(update: Update, context):
     user = update.effective_user
     logger.info('Пользователь ' + str(user.username) + " запустил команду get_ss")
     data = connectAndCommand('ss -tlnp')
-    update.message.reply_text(data)
+    msgs = [data[i:i + 4096] for i in range(0, len(data), 4096)]
+        for text in msgs:
+            update.message.reply_text(text)
 
 
 def getService(update: Update, context):
     user = update.effective_user
     logger.info('Пользователь ' + str(user.username) + " запустил команду get_services")
     data = connectAndCommand('service --status-all | grep +')
-    update.message.reply_text(data)
+    msgs = [data[i:i + 4096] for i in range(0, len(data), 4096)]
+        for text in msgs:
+            update.message.reply_text(text)
 
 def getReplLogs(update: Update, context):
     user = update.effective_user
